@@ -1,0 +1,10 @@
+I needed a 3D masked auto encoder with an easy to extract encoder, but I found other implementations of masked auto encoders and visual transformers heavy with extra features that made them hard to understand, difficult to adapt directly to my purposes, or requiring environments that introduced compatibility issues. Partially for my own education I decided to re-engineer a 3D version using several of the references I had found in my search for an implementation I could use directly. The resulting code uses only references to very basic libraries (i.e. numpy and pytorch), exists primarily in a single, relatively short python file (MAE_model.py), and, for me at least, builds a model that is more straightforward to understand, modify, and use. The implementation is likely suboptimal, but I wanted to share in the hopes it helps others understand how visual transformer based models work and to provide a more easily adaptable baseline for people needing 3D masked auto encoders or 3D visual tranformers.
+
+The dataset I used for functional testing was [TotalSegmentator's](https://github.com/wasserth/totalsegmentator) small dataset, though the torch dataset code should be straightforward to adapt from NIfTI files to loading any other format of data.
+
+Notable reference pages are listed below. Referenced code is implemented with varying degrees of changes, from verbatim to heavily modified, but the references used are listed in the relevant functions.
+
+https://medium.com/correll-lab/building-a-vision-transformer-model-from-scratch-a3054f707cc6
+https://github.com/Alpsource/Visual-Representation-Learning-MAE/blob/main/models.py
+https://docs.pytorch.org/tutorials/intermediate/transformer_building_blocks.html
+https://github.com/huggingface/transformers/blob/v5.12.0/src/transformers/models/vit_mae/modeling_vit_mae.py
